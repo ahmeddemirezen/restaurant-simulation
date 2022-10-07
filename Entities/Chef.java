@@ -13,8 +13,14 @@ public class Chef extends Thread {
     public ChefState state = ChefState.IDLE;
     public int id;
 
+    /**
+     * Şefin hazırlamakta olduğu siparişlerin tutulduğu kuyruk
+     */
     public Queue<Order> orders = new LinkedList<>();
 
+    /**
+     * Şefin hazırlamakta olduğu sipariş
+     */
     public Order order;
 
     private static int chefCount;
@@ -48,14 +54,26 @@ public class Chef extends Thread {
         }
     }
 
+    /**
+     * Şefin sipariş kuyruğuna yeni bir sipariş eklemesini sağlar
+     * @param _order Sipariş
+     */
     public void AddOrder(Order _order) {
         orders.add(_order);
     }
 
+    /**
+     * Şefin durumunu değiştirir
+     * @param _state Yeni durum
+     */
     public void SetState(ChefState _state) {
         state = _state;
     }
 
+    /**
+     * Şefin hazırda beklemekte olduğunu kontrol eder
+     * @return Şefin hazırda beklemekte olduğu durumu
+     */
     public boolean IsIdle() {
         return state == ChefState.IDLE;
     }

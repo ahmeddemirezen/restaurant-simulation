@@ -6,6 +6,9 @@ public class Drink extends Product implements IConsumable {
         super(_name, _consumeTime, _prepareTime);
     }
 
+    /* (non-Javadoc)
+     * @see Consumables.IConsumable#Consume()
+     */
     @Override
     public void Consume() {
         System.out.println(name + " consumed in " + consumeTime);
@@ -17,4 +20,8 @@ public class Drink extends Product implements IConsumable {
         return isConsumed;
     }
 
+    @Override
+    public String toString() {
+        return "Drink [name=" + name + ", consumeTime=" + consumeTime + ", prepareTime=" + prepareTime + "]";
+    }
 }

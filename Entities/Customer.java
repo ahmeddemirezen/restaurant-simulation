@@ -13,6 +13,9 @@ public class Customer extends Thread {
         WAITING, ORDERING, WAIT_ORDER, EATING, LEAVING
     }
 
+    /**
+     * Müşteri şiparişi
+     */
     public Order order;
     public int id;
     public CustomerState state = CustomerState.WAITING;
@@ -21,7 +24,7 @@ public class Customer extends Thread {
 
     // Customer Constants
 
-    public static final float PROB_WAITING = 0.5f;
+    public static final float PROB_WAITING = 0.3f;
 
     public Customer() {
         this.id = ++customerCount;
@@ -29,6 +32,9 @@ public class Customer extends Thread {
         SetOrder();
     }
 
+    /**
+     * Müşteriye rastgele bir sipariş oluşturur.
+    **/
     public void SetOrder() {
         List<Food> foods = new ArrayList<>();
         List<Drink> drinks = new ArrayList<>();
@@ -52,7 +58,7 @@ public class Customer extends Thread {
                 if (state == CustomerState.WAITING) {
                     if (Simulation.TrySitTable(this)) {
                         state = CustomerState.ORDERING;
-                        System.out.println(this);
+                        System.out.println(this + " " + order);
                         Simulation.orderQueue.add(order);
                     } else {
                         if (Math.random() > PROB_WAITING) {
@@ -96,6 +102,9 @@ public class Customer extends Thread {
         }
     }
 
+    /**
+     * Müşteri yemeğini yeme işlemini simule eder.
+     */
     public void Eat() {
         try {
             TimeUnit.MILLISECONDS.sleep((long) order.GetTotalConsumeTime());
@@ -106,6 +115,6 @@ public class Customer extends Thread {
 
     @Override
     public String toString() {
-        return "Customer " + this.id + " (" + this.state + ")";
+        return "Customer [id=" + id + ", state=" + state + "]";
     }
 }

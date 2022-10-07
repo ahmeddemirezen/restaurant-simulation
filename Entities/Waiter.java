@@ -35,6 +35,10 @@ public class Waiter extends Thread {
         }
     }
 
+    /**
+     * Garsonun siparişi almasını sağlar
+     * @param _order
+     */
     public void TakeOrder(Order _order) {
         order = _order;
         order.SetStage(Order.OrderStages.AtWaiter);
@@ -42,10 +46,18 @@ public class Waiter extends Thread {
         System.out.println(this);
     }
 
+    /**
+     * Garsonun durumunu değiştirir
+     * @param _state
+     */
     public void SetState(WaiterState _state) {
         state = _state;
     }
 
+    /**
+     * Garsonun durumunu döndürür
+     * @return boolean
+     */
     public boolean IsIdle() {
         return state == WaiterState.IDLE;
     }

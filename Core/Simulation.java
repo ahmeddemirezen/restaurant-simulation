@@ -41,16 +41,29 @@ public class Simulation {
     public static final int CHEF_COUNT = 2;
     public static final float PROB_CUSTOMER_ARRIVAL = 0.9f;
 
+    /**
+     * Statik product listesinden rastgele bir yiyecek ürünü döndürür.
+     * @return Food
+     */
     public static Food GetRandomFood() {
         Random rand = new Random();
         return products.foods.get(rand.nextInt(products.foods.size()));
     }
 
+    /**
+     * Statik product listesinden rastgele bir içecek ürünü döndürür.
+     * @return
+     */
     public static Drink GetRandomDrink() {
         Random rand = new Random();
         return products.drinks.get(rand.nextInt(products.drinks.size()));
     }
 
+    /**
+     * Boş bir masa bulur ve müşteriyi oturtur.
+     * @param _customer Müşteri
+     * @return başarı durumu
+     */
     public static boolean TrySitTable(Customer _customer) {
         for (Table table : tables) {
             if (table.IsEmpty()) {
@@ -61,6 +74,10 @@ public class Simulation {
         return false;
     }
 
+    /**
+     * Müşteri masadan ayrılır.
+     * @param _customer Müşteri
+     */
     public static void LeaveTable(Customer _customer) {
         for (Table table : tables) {
             if (table.customer == _customer) {

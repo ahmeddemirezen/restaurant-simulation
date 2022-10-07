@@ -16,4 +16,8 @@ public class Food extends Product implements IConsumable {
         return isConsumed;
     }
 
+    @Override
+    public String toString() {
+        return "Food [name=" + name + ", consumeTime=" + consumeTime + ", prepareTime=" + prepareTime + "]";
+    }
 }

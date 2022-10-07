@@ -6,6 +6,9 @@ public class ProductList {
     public List<Drink> drinks = new ArrayList<>();
     public List<Food> foods = new ArrayList<>();
 
+    /**
+     * Ürün listesi oluşturur.
+     */
     public ProductList() {
         // drinks.add(new Drink("Kola", 5000, 8000));
         // drinks.add(new Drink("Ayran", 5000, 8000));
