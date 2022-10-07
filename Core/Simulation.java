@@ -36,9 +36,21 @@ public class Simulation {
 
     // Constants
 
+    /**
+     * Masa sayısı
+     */
     public static final int TABLE_COUNT = 10;
+    /**
+     * Garson sayısı
+     */
     public static final int WAITER_COUNT = 6;
+    /**
+     * Şef sayısı
+     */
     public static final int CHEF_COUNT = 2;
+    /**
+     * 1 saniye içerisinde müşterinin gelme olasılığı
+     */
     public static final float PROB_CUSTOMER_ARRIVAL = 0.9f;
 
     /**
@@ -123,7 +135,7 @@ public class Simulation {
                     sb.append("\nTable [" + table.id + "] " + table.GetStatus());
                 }
                 System.out.println(sb.toString());
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
