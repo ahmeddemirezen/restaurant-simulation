@@ -1,3 +1,4 @@
+package Entities;
 public class Table {
     public enum TableStatus {
         Free,
